@@ -1,0 +1,19 @@
+def find_pair_with_sum(arr, target_sum):
+    num_dict = {}
+
+    for num in arr:
+        complement = target_sum - num
+        if complement in num_dict:
+            return (complement, num)
+        num_dict[num] = True
+
+    return None
+
+arr = list(map(int, input("Enter the array elements separated by space: ").split()))
+target_sum = int(input("Enter the target sum: "))
+
+pair = find_pair_with_sum(arr, target_sum)
+if pair:
+    print("Pair found:", pair)
+else:
+    print("No pair found with the given sum.")
